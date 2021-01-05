@@ -1,0 +1,343 @@
+# Calculadora 
+
+x = 10
+y = 20 
+z = 100 
+w = (x + y)*z / 100
+print(w)
+
+
+# Exibir texo no console
+
+print("Este texto será impresso no console")
+print(x)
+print("Texto e dias variaveis: ",x,",",z)
+
+
+#Verificar tipo 
+
+print(type(x))
+print(type(y))
+print(type(z))
+print(type(y))
+
+
+# Entrada de dados 
+
+print("Informe o valor: ")
+i = input()
+
+# Tipo String
+print(type(i))
+
+
+# Entrada de dados 
+
+i = input("Digite o Valor: ")
+print(i)
+
+
+
+# Conversão de valores 
+
+var = input("Digite um valor: ")
+print(type(var))
+var = int(var)
+print(type(var))
+
+var = float(var)
+print(type(var))
+
+
+# Estruturas de repetição 
+
+nota = 7 
+
+if nota >= 7:
+    print("Aprovado!")
+    print("Parabéns!")
+else:
+    Print("Reprovado!")
+    
+
+
+# Inserindo valores 
+
+nota = input("Digite uma nota: ")
+nota = int(nota)
+
+if nota >= 7:
+    print("Aprovado!!!")
+    print("Parabéns!!!")
+else:
+    print("Reprovado!!!")
+
+
+
+# Testar 4,5 e 7. se Nota <= 4 (Reprovado), nota > 4 e <= 6, se não Aprovadp 
+
+nota = input("Atribua uma nota: ")
+nota = int(nota)
+
+if nota <= 4:
+    print("Reprovado")
+    
+elif nota > 4 and nota <= 6:
+    print("Exame")
+
+else:
+    print("Aprovado!!!!")
+    print("Sua nota foi:",nota)
+
+
+
+# Estruturas de Repetição com While 
+
+count = input("Digite um valor: ")
+count = int(count)
+
+while count <= 10:
+    print(count)
+    count += 1
+
+# range(0, 10, 0):
+# range(inicio, parada, incremento)
+# O python ignora o ultimo valor de intervalos
+# O incremento pode ser negativo
+
+# for normal 
+
+for n in range(0, 10): # 0 - 9
+    print(n)
+    
+for n in range(0, 10): # Incrementa 1 a cada número
+    print(n+1)
+    
+for n in range(1, 11): # Imprime de 1 - 10
+    print(n)
+    
+
+
+# For decrescente
+
+for n in range(10, 0, -1):
+    print(n)
+
+
+
+# Exemplo com break
+# Vai parar no 3, pois ele para antes do 4
+for n in range(0, 10):
+    if n==4:
+        break
+    print(n)
+
+
+# Exemplo com continue
+# Vai pular o numero 4
+
+for n in range(0, 10):
+    if n==4:
+        continue
+    print(n)
+
+
+# Listas 
+
+lst = [1,2,3,4,5]
+print(lst)
+
+
+# Varios tipos 
+lst2 = [1,2,3,"4",True]
+print(lst2)
+
+
+# Lista com lista
+
+lst3 = [12,[1,2,3,4,5],"a"]
+print(lst3)
+
+
+# Criando lista range
+
+lst4 = list(range(0,10))
+print(lst4)
+
+
+# Comprimento da Lista
+
+print(len(lst))
+
+
+# Acessando elemento
+print(lst[0])
+
+# Posição 1 é uma lista
+print(lst3[1])
+
+# Alterando posição 
+
+lst[0] = 4
+print(lst)
+
+
+# Percorrendo a lista 
+for n in range(0, len(lst4)):
+    print(lst4[n]+10)
+
+
+# Importando pacotes
+import statistics
+
+z = [10,20,30,40]
+x = statistics.mean(z)
+y = statistics.median(z)
+print(x)
+print(y)
+
+
+import statistics as est
+
+z = [10,20,30,40]
+x = est.mean(z)
+y = est.median(z)
+print(x)
+print(y)
+
+
+from statistics import mean, median
+z = [10,20,30,40]
+x = mean(z)
+y = median(z)
+print(x)
+print(y)
+
+
+from statistics import *
+z = [10,20,30,40]
+x = mean(z)
+y = median(z)
+print(x)
+print(y)
+
+
+# Funções 
+def imprime():
+    print("Esta é uma função")
+    
+
+imprime()
+
+
+def imprime(n):
+    print(n)
+
+imprime("Impressão deste texto")
+
+
+
+# Com retorno 
+def potencia(n):
+    return n * n
+
+x = potencia(3)
+print(x)
+
+
+# Com valor default
+def intervalo(inic=1, fim=10):
+    for inic in range(1, fim+1):
+        print(inic)
+        
+        
+x = intervalo(1, 10)
+y = intervalo()
+
+
+
+
+# Funções internas
+print(abs(-200)) # Tipo um |Módulo|
+lst = [1,2,30,30,45]
+
+print("Maior Valor:", max(lst))
+print("Menor Valor:", min(lst))
+print("Soma: ", sum(lst))
+print("Arredondamento:", round(2.345458,2))
+
+
+
+# Funções Estatísticas
+from statistics import *
+
+print("Média:", mean(lst))
+print("Mediana:", median(lst))
+print("Moda:", mode(lst))
+print("Desvio Padrão Amostra:", round(stdev(lst)))
+print("Variancia:", variance(lst))
+
+
+
+from numpy import*
+a = random.random((8,8))
+print(type(a))
+
+print(a)
+
+
+
+
+# Faça Voce mesmo 
+
+# Imprimir amplitude de uma lista maior - menor da lista 
+
+def amplitude(vetor):
+    print("A amplitude da lista é:", max(vetor) - min(vetor))
+
+Vet = [10,20,30,40,50]
+
+amplitude(Vet)
+
+
+
+# Faça Voce mesmo 
+
+# Imprimir amplitude de uma lista maior - menor da lista 
+
+def ampritude(vett):
+    print("A Amplitude é:", max(vett) - min(vett))
+    
+Umvetor  =  [10,20,30,40,50,60,70]
+
+
+ampritude(Umvetor)
+
+
+#2. Faça uma função que receba uma string e imprima esta string na forma vertical
+
+def string(texto):
+    for n in range(0 , len(texto)):
+        print(texto[n])
+
+        
+lista = [10,20,30,40,50,60]
+
+string(lista)
+
+
+
+#3. Crie um programa que leia o peso de uma carga em números inteiros. 
+#Se o peso for até 10 kg, informe que o valor será de R$ 50,00. 
+#Entre 11 e 20 kg, informe que o valor será de R$ 80. 
+# Se for maior que  20 informe que o transporte não é aceito. Teste vários pesos.
+
+p = 50
+
+if p <= 10:
+    print("O Valor será de R$50.00")
+elif p >= 11 and p <=20:
+    print("O Valor será de R$80.00")
+else:
+    print("O transporte não é aceito")
+
