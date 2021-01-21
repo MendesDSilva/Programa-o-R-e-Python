@@ -341,3 +341,1350 @@ elif p >= 11 and p <=20:
 else:
     print("O transporte não é aceito")
 
+
+--=================================================================
+
+# Input de dados 
+
+print("Insira um valor no console: ")
+i = input()
+
+var = int(i)
+
+print(type(var))
+
+if var > 0:
+    print("Maior que 0")
+else:
+    print("Menor que 0")
+    
+    
+    
+    
+    # Input com texto 
+
+i = input("Entre com o valor: ")
+var = int(i)
+
+if var > 0:
+    print("Número maior que 0")
+else:
+    print("Número menor que 0")
+
+
+
+
+
+# Conversão de undidades 
+
+i = input("Insira um valor para teste: ")
+var = int(i)
+
+if var > 0:
+    print("O número é maior que 0")
+    var = float(var)
+    print(type(var))
+    
+else:
+    print("O número é menor que 0")
+    var = int(var)
+    print(type(var))
+
+
+
+# Estruturas de decisão
+#Testar com 4,5 e 7
+
+i = input("Entre com a nota: ")
+nota = int(i)
+
+if nota <= 2:
+    print("REPROVADO DIRETO")
+    
+elif nota <= 5:
+    print("EXAME")
+    
+else:
+    print("Aluno Aprovado")
+
+
+
+# Estruturas de repetição FOR
+
+i = input("Entre com um valor: ")
+numero = int(i)
+
+while numero <= 10:
+    print(numero)
+    numero += 1
+
+
+
+#range(0, 10, 1):
+#range(inicio, parada, incremento)
+#o python "igonora" o ultimo valor de intervalos
+#O incremento pode ser negativo
+
+# FOR normal
+
+# 1 - 10
+for n in range(0,10):
+    print(n+1)
+
+# 2 - 11
+for n in range(1,11):
+    print(n+1)
+
+
+
+# For decrescente
+
+for n in range(10,0,-1):
+    print(n)
+    
+    
+    #exemplo com BREAK
+#vai parar no 3 pois o break está antes do print
+
+for n in range (0,10):
+    if n == 4:
+        break
+    print(n)
+
+
+
+#exemplo com break
+#vai parar no 3 pois o break está antes do print
+
+for n in range(0,10):
+    if n == 4:
+        continue
+    print(n)
+    
+    
+    
+    # Listas 
+lst = [1,2,3,4,5,6,7,8,9,10]
+
+# Lista com Lista
+lst2 = [1,2,3,["Carro","Lista"],4,5,True]
+
+
+
+lst3 = list(range(0,10))
+print(lst3)
+
+
+# Tamanho lista
+print(len(lst3))
+
+
+
+# Trás o numero da posição 
+
+print(lst3)
+
+# tras a posição x
+print(lst3[3])
+
+
+
+# Criando uma lista
+
+lst5 = [1,2,3,4,["Mateus","Marcos","Lucas","João"],5,6]
+
+print(len(lst5))
+
+
+
+print(lst5)
+
+
+
+# Trás a posição 4
+
+print(lst5[4])
+
+
+
+# Teste de texto
+
+if type(lst5[4]) == str:
+    print("Verdadeiro")
+else:
+    print("Falso")
+    print("O tipo, na realidade é uma(a):", type(lst5[4]))
+    
+    
+    
+    # Percorrer uma Lista
+
+# [1,2,3,4,5,6,7,8]
+# [n,n,n,n,n,n,n,n]
+# lst5[n] + 1 pula para o próximo 
+
+lst5[4] = 2
+
+for n in range(0, len(lst5)):
+print(lst5[n]+1)
+
+
+
+#Cria uma função
+
+def imprime():
+    print("Esta é uma função")
+
+imprime()
+
+
+
+
+
+#Define um parametro para a função
+
+def imprime(n):
+    print(n)
+    
+imprime("Esta é uma Função")
+
+
+
+
+def Potencia(n):
+    return n*n
+
+Potencia(3)
+
+x = Potencia(3)
+print(x)
+
+
+
+
+
+from numpy import*
+
+a = random.random((8,8))
+print(a)
+
+
+
+
+#Limpeza e tratamento de dados 
+
+import pandas as pd
+import seaborn as srn
+import statistics as sts
+
+
+
+
+#Importando dados
+
+dataset = pd.read_csv("C:\Python\dados\Churn.csv", sep = ";")
+
+#Visualizar 
+
+dataset.head()
+
+dataset.shape
+
+
+
+dataset.head()
+
+
+# Nomeando colunas
+
+dataset.columns = ["id","Score","Estado","Genero","Idade","Patrimonio","Saldo","Produtos","TemCredito","Ativo","Salario","Saiu"]
+
+#Visualizar 
+dataset.head()
+
+
+
+#Explorar dados categoricos 
+#Estado
+
+dataset.groupby(['Estado']).size()
+
+agrupado = dataset.groupby(['Estado']).size()
+
+
+
+
+#Vendo no grafico
+
+agrupado.plot.bar(color ='green')
+
+
+
+# Explorando dados categoricos 
+#Genero 
+
+agrupado = dataset.groupby(['Genero']).size()
+
+agrupado
+
+
+
+# Visualizando no gráfico 
+
+agrupado.plot.bar(color = 'green')
+
+
+
+
+# Explorar colunas numericas
+
+dataset['Score'].describe()
+
+
+
+# Verificando no Boxplot
+
+srn.boxplot(dataset['Score']).set_title('Score')
+
+
+
+#Histograma
+
+srn.distplot(dataset['Score']).set_title('Score')
+
+
+#Idade
+
+dataset['Idade'].describe()
+
+
+
+
+#Boxplot
+
+srn.boxplot(dataset['Idade']).set_title('Idade')
+
+
+
+
+
+#Histograma
+
+srn.distplot(dataset['Idade']).set_title('Idade')
+
+
+
+#Saldo 
+
+dataset['Saldo'].describe()
+
+
+
+#Boxplot
+
+srn.boxplot(dataset['Saldo']).set_title('Saldo')
+
+
+
+#Histograma
+
+srn.distplot(dataset['Saldo']).set_title('Saldo')
+
+
+
+
+#Salario 
+
+dataset['Salario'].describe()
+
+
+
+#Boxplot
+
+srn.boxplot(dataset['Salario']).set_title('Salario')
+
+
+
+#Histograma
+
+srn.distplot(dataset['Salario']).set_title('Salario')
+
+
+
+
+#Verificar valores nulos 
+
+dataset.isnull().sum()
+
+
+
+#Tratando os Dados
+
+#Salario 
+#Remover valores nulos 
+
+dataset['Salario'].describe()
+
+
+
+# Mediana
+
+mediana = sts.median(dataset['Salario'])
+mediana
+
+
+
+#Substituir valores nulos NA pela mediana
+
+dataset['Salario'].fillna(mediana, inplace = True)
+
+
+
+#Contar valores nulos 
+
+dataset['Salario'].isnull().sum()
+
+
+
+#Tratando os dados de Gênero 
+
+agrupado = dataset.groupby(['Genero']).size()
+agrupado
+
+
+
+#Analizar valores nulos do gênero
+
+dataset['Genero'].isnull().sum()
+
+
+
+#Substituir os valores pela MODA
+
+dataset['Genero'].fillna('Masculino',inplace = True)
+
+
+
+dataset['Genero'].isnull().sum()
+
+
+dataset.groupby(['Genero']).size()
+
+
+dataset['Genero'].isnull().sum()
+
+
+#Fazendo a Padronização 
+
+dataset.loc[dataset['Genero'] == 'M', 'Genero'] = "Masculino"
+dataset.loc[dataset['Genero'].isin(['Fem','F'] ), 'Genero'] = "Feminino"
+
+
+# Visualizando
+
+agrupado = dataset.groupby(['Genero']).size()
+agrupado
+
+
+#Idades fora do padrão 
+
+dataset['Idade'].describe()
+
+
+
+#Verificando Idade
+
+srn.boxplot(dataset['Idade']).set_title('Idade')
+
+
+dataset.loc[(dataset['Idade'] < 0 ) | (dataset['Idade'] > 120)]
+
+
+mediana = sts.median(dataset['Idade'])
+mediana
+
+
+#Substituindo Idades > 120 anos e idade < 0 pela mediana
+
+dataset.loc[(dataset['Idade'] < 0 ) | (dataset['Idade'] > 120 ), 'Idade'] = mediana
+
+
+
+#Verificando dados Duplicados
+
+dataset[dataset.duplicated(['id'],keep=False)]
+
+
+
+# Retirando os dados Duplicados 
+
+dataset.drop_duplicates(subset="id", keep='first', inplace=True)
+
+#Verificando se há dados duplicados 
+
+dataset[dataset.duplicated(['id'],keep=False)]
+
+
+
+dataset.groupby(['Estado']).size()
+
+
+# Substituir RP, TD e SP pela MODA 
+
+dataset.loc[ dataset['Estado'].isin(['RP','TD','SP']), 'Estado'] = "RS"
+
+dataset.groupby(['Estado']).size()
+
+
+
+
+#Identificando os outliers nos salários, definir outliers = 2 * desvio padrão
+
+sts.stdev(dataset['Salario'])
+
+desv = sts.stdev(dataset['Salario'])
+
+
+
+
+# Verificando se há algum ítem com desvio
+
+dataset.loc[dataset['Salario'] >= 2 * desv]
+
+
+
+# Encontrando a Mediana 
+
+sts.median(dataset['Salario'])
+
+mediana = sts.median(dataset['Salario'])
+
+mediana
+
+
+
+#Substituir os Outliers pela mediana 
+
+
+dataset.loc[dataset['Salario'] >= 2 * desv, 'Salario'] = mediana 
+
+
+
+# Verificar se existe algum ítem como Outlier 
+
+dataset.loc[dataset['Salario'] >= 2 * desv]
+
+
+
+
+dataset.head()
+
+
+dataset.shape
+
+
+# Substituir o valor
+
+dataset.groupby(dataset['TemCredito']).size()
+
+
+
+
+# Verificar Se a pessoa tem credito, 0 ou 1 
+
+dataset.loc[ dataset['TemCredito'] == 0 ]
+
+
+
+# Substituir 0 por NÃO e 1 por SIM
+
+dataset.loc[dataset['TemCredito'] == 0, 'TemCredito'] = "Não"
+dataset.loc[dataset['TemCredito'] == 1, 'TemCredito'] = "Sim"
+
+
+#Verifica o total por ítem cateórico
+
+dataset.groupby(dataset['TemCredito']).size()
+
+
+
+# Verificar a categoria dos ativos 
+
+dataset.groupby(dataset['Ativo']).size()
+
+
+
+# Substituir os ítens categóricos 0 por não e 1 por sim 
+
+dataset.loc[ dataset['Ativo'] == 0, 'Ativo'] = "Não"
+dataset.loc[ dataset['Ativo'] == 1, 'Ativo'] = "Sim"
+
+
+
+# Verificar novamente as categorias dos ativos 
+
+dataset.groupby(dataset['Ativo']).size()
+
+
+# Verificar a tabela toda 
+
+dataset.head()
+
+
+
+#Verificar a categoria de saída 
+
+dataset.groupby(dataset['Saiu']).size()
+
+
+
+# Substituir 0 por NÃO e 1 por SIM
+
+dataset.loc[dataset['Saiu'] == 0, 'Saiu'] = "Não"
+dataset.loc[dataset['Saiu'] == 1, 'Saiu'] = "Sim"
+
+
+
+# verificar as Categorias 
+
+dataset.groupby(dataset['Saiu']).size()
+
+
+# Mediana do Saldo 
+
+sts.median(dataset['Saldo'])
+
+mediana_saldo = sts.median(dataset['Saldo'])
+
+
+# Substituir valores 0 de Saldo pela mediana
+
+dataset.loc[dataset['Saldo'] == 0, 'Saldo'] = mediana_saldo
+
+
+
+# Verificar Novamente
+
+dataset.head()
+
+
+
+# Atividade 
+# Importar e tratar Arquivo tempo. 
+
+import pandas as pd
+import seaborn as srn
+import statistics as sts
+
+
+
+#Importando dados tempo 
+
+dataset_tempo = pd.read_csv("C:\Python\dados/tempo.csv", sep = ";")
+
+
+
+
+dataset_tempo.head()
+
+
+dataset_tempo.groupby(dataset_tempo['Aparencia']).size()
+
+
+#Substituir Menos por sol 
+
+dataset_tempo.loc[dataset_tempo['Aparencia'] == "menos", 'Aparencia'] = "Sol"
+
+
+dataset_tempo.groupby(dataset_tempo['Aparencia']).size()
+
+
+#Substituindo "Sol" por "sol"
+
+dataset_tempo.loc[dataset_tempo['Aparencia'] == "Sol", 'Aparencia'] = "sol"
+
+
+# Testar
+
+dataset_tempo.groupby(dataset_tempo['Aparencia']).size()
+
+
+# Tratando Temperatura
+
+dataset_tempo.groupby(dataset_tempo['Temperatura']).size()
+
+
+
+# Calculando a mediana da temperatura
+
+sts.median(dataset_tempo['Temperatura'])
+
+mediana = sts.median(dataset_tempo['Temperatura'])
+mediana
+
+
+
+# Calculando o desvio padrão da temperatura
+
+sts.stdev(dataset_tempo['Temperatura'])
+desv = sts.stdev(dataset_tempo['Temperatura'])
+
+
+# Considerar DESVIO o ítem em que for maior que duas vezes o desvio padrão
+
+dataset_tempo.loc[dataset_tempo['Temperatura'] > 2 * desv, 'Temperatura' ]
+
+
+
+# Substituir o desvio pela mediana
+
+dataset_tempo.loc[dataset_tempo['Temperatura'] > 2 * desv, 'Temperatura'] = mediana
+
+
+# Verificar os dados 
+
+dataset_tempo.describe()
+
+
+# Testanto no Bloxplot
+
+srn.boxplot(dataset_tempo['Temperatura'])
+
+
+
+# Testando com a Histograma
+
+srn.distplot(dataset_tempo['Temperatura'])
+
+
+# Trabalhando com a Umidade
+
+dataset_tempo['Umidade'].describe()
+
+
+# Calculando a mediana da umidade 
+
+sts.median(dataset_tempo['Umidade'])
+
+median = sts.median(dataset_tempo['Umidade'])
+median
+
+
+# Boxplot com a umidade 
+
+srn.boxplot(dataset_tempo['Umidade'])
+
+
+# Testando com o histograma
+
+srn.distplot(dataset_tempo['Umidade'])
+
+
+# Substituindo valores maiores que 100
+
+dataset_tempo.loc[dataset_tempo['Umidade'] > 100, 'Umidade'] = mediana
+
+
+
+# Descrevendo dados
+
+dataset_tempo.describe()
+
+
+# Verificando os dados 
+
+dataset_tempo.head()
+
+
+#Verificando NaN
+
+dataset_tempo['Umidade'].isnull().sum()
+
+
+# Substituindo valor nulo pela mediana
+
+dataset_tempo['Umidade'].fillna(mediana,inplace = True)
+
+
+#Verificando se há valores nulos
+
+dataset_tempo['Umidade'].isnull().sum()
+
+
+#Analisar Dados 
+
+dataset_tempo.head()
+
+
+# Analisando Vendo
+
+dataset_tempo.groupby(dataset_tempo['Vento']).size()
+
+
+# Analisando Jogar
+
+dataset_tempo.groupby(dataset_tempo['Jogar']).size()
+
+
+
+# Verificando dados 
+
+dataset_tempo.head()
+
+
+srn.boxplot(dataset_tempo['Temperatura'])
+
+
+# Trabalhando com Gráficos e Dashboards 
+    
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+    
+# Importando dados trees.csv
+
+trees = pd.read_csv("C:\Python\Dashboards\dados/trees.csv")
+
+
+# Verificando os dados 
+
+trees.head()
+
+
+trees.shape
+
+
+trees.describe()
+
+#Gerando o Histograma 
+
+altura = np.histogram(trees.iloc[:,1], bins = 6)
+altura
+
+
+# A Divisão do histograma com 6 eixos 
+
+plt.hist(trees.iloc[:,1], bins = 6)
+plt.title("Árvores")
+plt.ylabel("Frequência")
+plt.xlabel("Altura")
+
+
+
+#Importando bibliotecas
+
+import seaborn as srn
+import statistics as sts
+
+
+
+#Importando dados 
+
+trees = pd.read_csv("C:\Python\Dashboards\dados/trees.csv")
+trees.head()
+
+
+#Histograma de 10 divisões com 6 eixos 
+
+plt.hist(trees.iloc[:,1], bins = 6)
+
+
+#Histograma utilizando a biblioteca seaborn, gráfico com suavização 
+# kde = linha de suavização
+# hist_kws = linha da borda entre barras
+
+srn.distplot(trees.iloc[:,1], hist = True, kde = False, bins = 6, color = "green", hist_kws={"edgecolor":"Black"})
+
+
+# Utilizando linha de suavização no Histograma
+
+srn.distplot(trees.iloc[:,1], hist = True, kde = True, bins = 6, color = "Blue", hist_kws={"edgecolor":"Black"})
+
+
+# Suavização do Histograma sem as barras 
+
+srn.distplot(trees.iloc[:,1], hist = False, kde = True, color = 'Blue',hist_kws={"edgecolor":"Black"})
+
+
+#Densidade e histograma
+
+srn.distplot(trees.iloc[:,1], hist = True, kde = True, color = "Purple", hist_kws={"edgecolor":"Black"})
+
+
+# Gráfico de dispersão 
+
+plt.scatter(trees.Girth, trees.Volume, color = 'Blue', facecolors = 'none', marker = '*')
+plt.title('Árvores')
+plt.ylabel('Volume')
+plt.xlabel('Circunferência')
+
+
+# Gráfico de dispersão 
+
+plt.scatter(trees.Girth, trees.Volume, color = 'blue')
+plt.title('Árvores')
+plt.ylabel('Volume')
+plt.xlabel('Circunferência')
+
+
+
+#Dispersão com linha, onde a linha liga todos os pontos do gr
+
+plt.plot(trees.Girth, trees.Volume)
+plt.title('Árvores')
+plt.ylabel('Volume')
+plt.xlabel('Circunferência')
+
+
+
+
+# Gráfico de dispersão com afastamento dos dados (jitter)
+#fit_reg (linha de tendencia)
+
+srn.regplot(trees.Girth, trees.Volume, data = trees, x_jitter = 0.3, fit_reg = False)
+
+
+
+# Gráfico de dispersão com afastamento dos dados (jitter) com linha de tendência
+#fit_reg (linha de tendencia)
+
+srn.regplot(trees.Girth, trees.Volume, data = trees, x_jitter = 0.3, fit_reg = True)
+
+
+# Gráficos de dispersão com legendas
+# Importando bibliotecas
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+co2 = pd.read_csv("C:\Python\Dashboards\dados\co2.csv")
+co2
+
+
+co2.head()
+
+
+# Criando duas variáveis para cada atributo (x = conc , y = uptake)
+x = co2.conc
+y = co2.uptake
+
+
+# Retorna os valores únicos do atributo "Treatment"
+
+unicos = list(set(co2.Treatment))
+unicos 
+
+
+# Percorre cada tipo de tratamento (Chilled, nonchilled) e cria um gráfico de dispersão
+
+for i in range(len(unicos)):
+    indice = co2.Treatment == unicos[i]
+    plt.scatter(x[indice], y[indice], label = unicos[i])
+plt.legend(loc = 'lower right')
+
+
+
+#Divisão de telas
+
+trees = pd.read_csv("C:\Python\Dashboards\dados/trees.csv")
+trees
+
+#Visualizando
+
+trees.head()
+
+
+# Gráfico de dispersão Girth e volume
+
+plt.scatter(trees.Girth, trees.Volume)
+
+
+
+# Gráfico de dispersão Girth com Hight
+
+plt.scatter(trees.Girth, trees.Height)
+
+
+# Gráfico de Dispersão height com Volume
+
+plt.scatter(trees.Height, trees.Volume, marker = '*')
+
+
+# Histograma de Volume
+
+plt.hist(trees.Volume)
+
+
+# Imprimindos Juntos 
+
+plt.figure(1)
+plt.subplot(2,2,1)
+plt.scatter(trees.Girth, trees.Volume)
+plt.subplot(2,2,2)
+plt.scatter(trees.Girth, trees.Height)
+plt.subplot(2,2,3)
+plt.scatter(trees.Height, trees.Volume, marker = '*')
+plt.subplot(2,2,4)
+plt.hist(trees.Volume)
+
+
+
+# Gráfico Boxplot 
+
+trees.head()
+
+
+#Boxplot 
+# patch_artist = True preeche boxplot
+# showFliers(Outliers)
+# notch = cria entalhe, ficar cortado ao centro
+
+plt.boxplot(trees.Volume, vert = False, showfliers = False, notch = True, patch_artist = True)
+plt.title("Árvores")
+plt.xlabel("Volume")
+
+
+# Boxplot sem entalhe e na horizontal e outliers
+
+plt.boxplot(trees.Volume, vert = True, showfliers = True, notch = False, patch_artist = True)
+plt.title("Árvores")
+plt.xlabel("Volume")
+
+
+
+# Boxplot por linha 
+
+plt.boxplot(trees)
+plt.title("Árvores")
+plt.xlabel("Volume")
+
+
+# Geração por boxplot, cada um mostrando informações diferentes na horizontal
+
+plt.boxplot(trees.Girth, vert = False)
+plt.boxplot(trees.Height, vert = False)
+plt.boxplot(trees.Volume, vert = False)
+plt.title("Árvores")
+plt.xlabel("Volume")
+
+
+# Geração do boxplot na Vertical 
+
+plt.boxplot(trees.Girth, vert = True)
+plt.boxplot(trees.Height, vert = True)
+plt.boxplot(trees.Volume, vert = True)
+plt.title("Área")
+plt.xlabel("Volume")
+
+
+
+# Distribuindo dos graficos por tela
+
+plt.figure(1)
+
+plt.subplot(1,3,1)
+plt.boxplot(trees.Girth, vert = True)
+plt.xlabel("Girth")
+
+plt.subplot(1,3,2)
+plt.boxplot(trees.Height, vert = True)
+plt.xlabel("Height")
+
+plt.subplot(1,3,3)
+plt.boxplot(trees.Volume, vert = True)
+plt.xlabel("Volume")
+
+plt.title("Árvores")
+plt.xlabel("Volume")
+
+
+# Gráfico de barras e setores 
+
+import pandas as pd 
+
+
+# Carregando base de dados 
+
+insect = pd.read_csv("C:\Python\Dashboards\dados\insect.csv")
+
+
+# Visualizando os dados 
+
+insect.head()
+
+
+# Agrupamento dos dados baseado no atributo 'spray', contando e somando os registros 
+
+insect.groupby(['spray'])['count'].sum()
+
+agrupado = insect.groupby(['spray'])['count'].sum()
+agrupado
+
+
+# Gráfico de Barras
+
+agrupado.plot.bar(color = 'Red')
+
+
+# Gráfico com cores de barras diferentes 
+
+agrupado.plot.bar(color = ['red','green','brown','blue','yellow','purple'])
+
+
+# Gráfico de Pizza
+
+agrupado.plot.pie()
+
+
+# Gráfico de setor com legenda
+
+agrupado.plot.pie(legend = True)
+
+
+
+# Gráfico boxplot com Seaborn
+
+import seaborn as srn
+import pandas as pd
+
+
+# Importando dados 
+
+trees = pd.read_csv("C:\Python\Dashboards\dados/trees.csv")
+trees
+
+# Visualizando as 5 primeiras linhas 
+
+trees.head()
+
+
+# Boxplot com Seaborn
+
+srn.boxplot(trees.Volume).set_title('Árvores')
+
+
+# Boxplot em Seaborn 2
+
+srn.boxplot(data = trees)
+
+
+# Histograma com densidade biblioteca Seaborn
+import pandas as pd
+import seaborn as srn
+import matplotlib.pyplot as plt
+
+
+
+# Importando dados 
+
+trees = pd.read_csv("C:\Python\Dashboards\dados/trees.csv")
+trees
+
+
+# Histograma com 10 divisoes (bins) e com gráfico de densidade
+
+srn.distplot(trees.Volume, bins = 10, axlabel = "Volume").set_title("Árvores")
+
+
+
+# Coletando outra base de dados 
+
+chicken = pd.read_csv("C:\Python\Dashboards\dados\chicken.csv")
+chicken.head()
+
+
+# Criando agrupamento por feed, somando por peso 
+
+chicken.groupby(['feed'])['weight'].sum()
+
+
+# Contando total feed
+
+chicken.groupby(['feed'])['weight'].sum()
+
+
+
+# Agrupoamento por tipo de alimentação 
+
+
+chicken.groupby(['feed'])['weight'].sum()
+
+
+# Criando o histograma de peso considerando a alimentação horsebean
+
+srn.distplot(chicken.loc[chicken['feed'] == 'horsebean'].weight, hist = False).set_title('horsebean')
+
+
+# Histograma considerando somente casein 
+
+srn.distplot(chicken.loc[chicken['feed'] == 'casein'].weight).set_title('Casein')
+
+
+# Histograma considerando somente linseed
+
+
+srn.distplot(chicken.loc[chicken['feed'] == 'linseed'].weight).set_title('Considerando Linseed')
+
+
+# Considerando somente a alimentação Meatmeal
+
+srn.distplot(chicken.loc[chicken['feed'] == 'meatmeal'].weight).set_title('Considerando Alimentação Meatmeal')
+
+
+# COnsiderando Soybean 
+
+srn.distplot(chicken.loc[chicken['feed'] == 'soybean'].weight).set_title('Considerando Soybean')
+
+
+# Considerando somente alimentação Sunflower
+
+srn.distplot(chicken.loc[chicken['feed'] == 'sunflower'].weight).set_title('Considerando Sunflower')
+
+
+# Contando total feed
+
+chicken.groupby(['feed'])['weight'].sum()
+
+
+# Criando o Dashboard 
+
+plt.figure()
+plt.subplot(3,2,1)
+srn.distplot(chicken.loc[chicken['feed'] == 'casein'].weight).set_title('Considerando Alimento Casein')
+
+plt.subplot(3,2,2)
+srn.distplot(chicken.loc[chicken['feed'] == 'horsebean'].weight).set_title('Considerando Alimento Horsebean')
+
+plt.subplot(3,2,3)
+srn.distplot(chicken.loc[chicken['feed'] == 'linseed'].weight).set_title('Considerando Alimento Linseed')
+
+plt.subplot(3,2,4)
+srn.distplot(chicken.loc[chicken['feed'] == 'meatmeal'].weight).set_title('Considerando Alimento Meatmeal')
+
+plt.subplot(3,2,5)
+srn.distplot(chicken.loc[chicken['feed'] == 'soybean'].weight).set_title('Considerando Alimento Soybean')
+
+plt.subplot(3,2,6)
+srn.distplot(chicken.loc[chicken['feed'] == 'sunflower'].weight).set_title('Considerando Alimento Sunflower')
+
+
+# Ajuste do Layout
+
+plt.tight_layout()
+
+
+# Gráfico de Dispersão com Seaborn
+
+import pandas as pd
+import seaborn as srn
+import matplotlib.pyplot as plt
+
+
+# Importando dados CO2
+
+co2 = pd.read_csv("C:\Python\Dashboards\dados\co2.csv")
+co2
+co2.head()
+
+
+# Criando grafico de dispersão utilizando conc e uptake
+
+srn.scatterplot(co2.conc, co2.uptake, hue = co2.Type)
+
+
+# Selecionando os dados pelo tipo Qubec ou Mississippi
+
+quebec = co2.loc[co2['Type'] == 'Quebec']
+mississippi = co2.loc[co2['Type'] == 'Mississippi']
+
+
+# Criando Gráfico de dispersão com com o tipo 
+
+plt.figure()
+plt.subplot(1,2,1)
+srn.scatterplot(quebec.conc, quebec.uptake).set_title('Quebec')
+
+plt.subplot(1,2,2)
+srn.scatterplot(mississippi.conc, mississippi.uptake).set_title('Mississippi')
+
+# Ajuste do Layout
+
+plt.tight_layout()
+
+
+# Criando os gráficos considerando os tratamentos chilled e nonchilled
+
+chilled = co2.loc[co2['Treatment'] == 'chilled']
+nonchilled = co2.loc[co2['Treatment'] == 'nonchilled']
+
+
+
+# Criando os gráficos de dispersão considerando os tratamentos 
+
+plt.figure()
+plt.subplot(1,2,1)
+srn.scatterplot(chilled.conc, chilled.uptake).set_title('Chilled')
+
+plt.subplot(1,2,2)
+srn.scatterplot(nonchilled.conc, nonchilled.uptake).set_title('Nonchilled')
+
+# Ajustando graficos 
+
+plt.tight_layout()
+
+
+# Utilizando base esoph
+
+esoph = pd.read_csv("C:\Python\Dashboards\dados\esoph.csv")
+esoph
+
+
+# Criando dispersão considerando quantidade alcpg pelo numero de controles ncontrols 
+
+srn.catplot(x = 'alcgp', y = 'ncontrols', data = esoph, jitter = False)
+
+
+
+# Criando dispersão considerando quantidade alcpg pelo numero de controles ncontrols com formatação condicional 
+
+srn.catplot(x = 'alcgp', y = 'ncontrols', data = esoph, col = 'tobgp')
+
+
+
+# Trabalhando com graficos 3D
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import axes3d
+
+
+# Carregando dados 
+
+orchard = pd.read_csv("C:\Python\Dashboards\dados\orchard.csv")
+orchard
+
+
+# Criação de gráficos 3d 
+
+figura = plt.figure()
+eixo = figura.add_subplot(1,1,1, projection = '3d')
+eixo.scatter(orchard.decrease, orchard.rowpos, orchard.colpos)
+eixo.set_xlabel('Decrease')
+eixo.set_ylabel('Rowpos')
+eixo.set_zlabel('Colpos')
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
